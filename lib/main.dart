@@ -1,4 +1,4 @@
-import 'package:bankapp/components/appBar.dart';
+import 'package:bankapp/components/app_bar.dart';
 import 'package:bankapp/components/weather.dart';
 import 'package:flutter/material.dart';
 
