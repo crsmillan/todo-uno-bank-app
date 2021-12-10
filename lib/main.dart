@@ -1,3 +1,4 @@
+import 'package:bankapp/components/account_card.dart';
 import 'package:bankapp/components/app_bar.dart';
 import 'package:bankapp/components/weather.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,8 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: const [
           WeatherComponent(),
+          Text('Cuentas'),
+          
         ],
       ),
     );
