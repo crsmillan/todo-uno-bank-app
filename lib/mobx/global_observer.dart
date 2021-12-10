@@ -73,6 +73,16 @@ abstract class GlobalStoreBase with Store {
   ];
 
 
+  @observable 
+  String? user;
+
+  @observable 
+  String? password;
+
+  @observable
+  bool logged = false;
+
+
 
   // TRANSACTION
 
@@ -116,4 +126,13 @@ abstract class GlobalStoreBase with Store {
 
   @action
   void addNewFakeTransaction(TransactionModel transaction) => fakeTransactions.add(transaction);
+
+  @action 
+  void setUser(String _user) => user = _user;
+
+  @action 
+  void setPassword(String _password) => password = _password;
+
+  @action 
+  void login() => logged = true;
 }

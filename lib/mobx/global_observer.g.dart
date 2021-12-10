@@ -84,6 +84,51 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
     });
   }
 
+  final _$userAtom = Atom(name: 'GlobalStoreBase.user');
+
+  @override
+  String? get user {
+    _$userAtom.reportRead();
+    return super.user;
+  }
+
+  @override
+  set user(String? value) {
+    _$userAtom.reportWrite(value, super.user, () {
+      super.user = value;
+    });
+  }
+
+  final _$passwordAtom = Atom(name: 'GlobalStoreBase.password');
+
+  @override
+  String? get password {
+    _$passwordAtom.reportRead();
+    return super.password;
+  }
+
+  @override
+  set password(String? value) {
+    _$passwordAtom.reportWrite(value, super.password, () {
+      super.password = value;
+    });
+  }
+
+  final _$loggedAtom = Atom(name: 'GlobalStoreBase.logged');
+
+  @override
+  bool get logged {
+    _$loggedAtom.reportRead();
+    return super.logged;
+  }
+
+  @override
+  set logged(bool value) {
+    _$loggedAtom.reportWrite(value, super.logged, () {
+      super.logged = value;
+    });
+  }
+
   final _$newTransactionAtom = Atom(name: 'GlobalStoreBase.newTransaction');
 
   @override
@@ -238,6 +283,39 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
   }
 
   @override
+  void setUser(String _user) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setUser');
+    try {
+      return super.setUser(_user);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setPassword(String _password) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setPassword');
+    try {
+      return super.setPassword(_password);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void login() {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.login');
+    try {
+      return super.login();
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentPosition: ${currentPosition},
@@ -245,6 +323,9 @@ currentPlacemark: ${currentPlacemark},
 currentWeather: ${currentWeather},
 userAccounts: ${userAccounts},
 fakeTransactions: ${fakeTransactions},
+user: ${user},
+password: ${password},
+logged: ${logged},
 newTransaction: ${newTransaction},
 originAccountSelected: ${originAccountSelected},
 currencySelected: ${currencySelected},

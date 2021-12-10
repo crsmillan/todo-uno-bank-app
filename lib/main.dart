@@ -4,7 +4,10 @@ import 'package:bankapp/components/fab_new_transaction.dart';
 import 'package:bankapp/components/fab_scanqr.dart';
 import 'package:bankapp/components/section.dart';
 import 'package:bankapp/components/weather.dart';
+import 'package:bankapp/mobx/helper.dart';
+import 'package:bankapp/pages/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 void main() {
   runApp(const BankApp());
@@ -23,7 +26,13 @@ class BankApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const HomePage(),
+      home: Observer(builder: (_){
+        if (Store.global.logged) {
+          return const HomePage();
+        } else {
+          return const SigIn();
+        }
+      }),
     );
   }
 }
