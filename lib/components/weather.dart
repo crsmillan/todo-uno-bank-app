@@ -48,7 +48,7 @@ class _WeatherComponentState extends State<WeatherComponent> {
         String area =
             Store.global.currentPlacemark?.administrativeArea ?? '';
         String cp = Store.global.currentPlacemark?.postalCode ?? '';
-        return Text('$city, $area $cp');
+        return Text('$city, $area $cp', style: const TextStyle(color: Colors.white));
       },
     );
   }
@@ -58,7 +58,7 @@ class _WeatherComponentState extends State<WeatherComponent> {
       builder: (context) {
         Temperature? temp = Store.global.currentWeather?.temperature;
         int? celsious = temp?.celsius?.round();
-        return Text('$celsious ºC');
+        return Text('$celsious ºC', style: const TextStyle(color: Colors.white));
       },
     );
   }
@@ -66,7 +66,7 @@ class _WeatherComponentState extends State<WeatherComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.transparent,
+      color: Colors.purple,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[

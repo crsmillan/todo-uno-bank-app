@@ -9,8 +9,8 @@ class AppBarComponet extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       title: Text(title),
       centerTitle: true,
-      backgroundColor: Colors.transparent,
-      foregroundColor: Colors.purple,
+      backgroundColor: Colors.purple,
+      foregroundColor: Colors.white,
       elevation: 0.0,
       actions: <Widget>[
         IconButton(
