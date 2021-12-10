@@ -1,5 +1,5 @@
-import 'package:bankapp/components/account_card.dart';
 import 'package:bankapp/components/app_bar.dart';
+import 'package:bankapp/components/section.dart';
 import 'package:bankapp/components/weather.dart';
 import 'package:flutter/material.dart';
 
@@ -28,15 +28,29 @@ class BankApp extends StatelessWidget {
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  yield(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8.0),
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          AppSectionTitle(title: 'Cuentas'),
+          
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarComponet(title: BankApp.appName),
       body: Column(
-        children: const [
-          WeatherComponent(),
-          Text('Cuentas'),
-          
+        children: [
+          const WeatherComponent(),
+          yield(context),
         ],
       ),
     );

@@ -16,13 +16,14 @@ class Account {
   final int id;
   final double balance;
   final Currency currency;
-
   Account({
     required this.accountType,
     required this.id,
     required this.balance,
     required this.currency,
   });
+
+  
 
   Account copyWith({
     AccountType? accountType,
@@ -40,19 +41,19 @@ class Account {
 
   Map<String, dynamic> toMap() {
     return {
-      'accountType': accountType.toMap(),
+      'accountType': accountType.toString(),
       'id': id,
       'balance': balance,
-      'currency': currency.toMap(),
+      'currency': currency.toString(),
     };
   }
 
   factory Account.fromMap(Map<String, dynamic> map) {
     return Account(
-      accountType: AccountType.fromMap(map['accountType']),
+      accountType: map['accountType'],
       id: map['id']?.toInt() ?? 0,
       balance: map['balance']?.toDouble() ?? 0.0,
-      currency: Currency.fromMap(map['currency']),
+      currency: map['currency'],
     );
   }
 
