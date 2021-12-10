@@ -7,15 +7,13 @@ class AppSectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.red,
-      child: Expanded(
-        child: Text(
-          title,
-          textAlign: TextAlign.start,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold
-          ),
+      color: Colors.transparent,
+      child: Text(
+        title,
+        textAlign: TextAlign.start,
+        style: const TextStyle(
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold
         ),
       ),
     );

@@ -54,6 +54,21 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
     });
   }
 
+  final _$userAccountsAtom = Atom(name: 'GlobalStoreBase.userAccounts');
+
+  @override
+  List<Account> get userAccounts {
+    _$userAccountsAtom.reportRead();
+    return super.userAccounts;
+  }
+
+  @override
+  set userAccounts(List<Account> value) {
+    _$userAccountsAtom.reportWrite(value, super.userAccounts, () {
+      super.userAccounts = value;
+    });
+  }
+
   final _$GlobalStoreBaseActionController =
       ActionController(name: 'GlobalStoreBase');
 
@@ -91,11 +106,23 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
   }
 
   @override
+  void setUserAccounts(List<Account> accounts) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setUserAccounts');
+    try {
+      return super.setUserAccounts(accounts);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentPosition: ${currentPosition},
 currentPlacemark: ${currentPlacemark},
-currentWeather: ${currentWeather}
+currentWeather: ${currentWeather},
+userAccounts: ${userAccounts}
     ''';
   }
 }

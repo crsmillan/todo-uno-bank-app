@@ -1,4 +1,5 @@
 
+import 'package:bankapp/domain/models/account_model.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
@@ -19,6 +20,9 @@ abstract class GlobalStoreBase with Store {
   @observable
   Weather? currentWeather;
 
+  @observable
+  List<Account> userAccounts = <Account>[];
+
 
   // ··················· ACTIONS ·······················
 
@@ -30,4 +34,10 @@ abstract class GlobalStoreBase with Store {
   
   @action
   void setCurrentWeather(Weather weather) => currentWeather = weather;
+
+  @action 
+  void setUserAccounts(List<Account> accounts) {
+    userAccounts.clear();
+    userAccounts = accounts;
+  }
 }
