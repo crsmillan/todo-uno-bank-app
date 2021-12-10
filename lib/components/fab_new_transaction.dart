@@ -7,7 +7,7 @@ class FABNewTransaction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      child: const Icon(Icons.attach_money),
+      child: const Icon(Icons.attach_money_rounded),
       heroTag: 'New Transaction',
       onPressed: () {
         Navigator.of(context).push(
