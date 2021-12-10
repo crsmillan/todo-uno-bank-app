@@ -84,6 +84,68 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
     });
   }
 
+  final _$newTransactionAtom = Atom(name: 'GlobalStoreBase.newTransaction');
+
+  @override
+  Transaction? get newTransaction {
+    _$newTransactionAtom.reportRead();
+    return super.newTransaction;
+  }
+
+  @override
+  set newTransaction(Transaction? value) {
+    _$newTransactionAtom.reportWrite(value, super.newTransaction, () {
+      super.newTransaction = value;
+    });
+  }
+
+  final _$originAccountSelectedAtom =
+      Atom(name: 'GlobalStoreBase.originAccountSelected');
+
+  @override
+  Account? get originAccountSelected {
+    _$originAccountSelectedAtom.reportRead();
+    return super.originAccountSelected;
+  }
+
+  @override
+  set originAccountSelected(Account? value) {
+    _$originAccountSelectedAtom.reportWrite(value, super.originAccountSelected,
+        () {
+      super.originAccountSelected = value;
+    });
+  }
+
+  final _$currencySelectedAtom = Atom(name: 'GlobalStoreBase.currencySelected');
+
+  @override
+  String get currencySelected {
+    _$currencySelectedAtom.reportRead();
+    return super.currencySelected;
+  }
+
+  @override
+  set currencySelected(String value) {
+    _$currencySelectedAtom.reportWrite(value, super.currencySelected, () {
+      super.currencySelected = value;
+    });
+  }
+
+  final _$amountSelectedAtom = Atom(name: 'GlobalStoreBase.amountSelected');
+
+  @override
+  double get amountSelected {
+    _$amountSelectedAtom.reportRead();
+    return super.amountSelected;
+  }
+
+  @override
+  set amountSelected(double value) {
+    _$amountSelectedAtom.reportWrite(value, super.amountSelected, () {
+      super.amountSelected = value;
+    });
+  }
+
   final _$GlobalStoreBaseActionController =
       ActionController(name: 'GlobalStoreBase');
 
@@ -132,13 +194,61 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
   }
 
   @override
+  void setOriginAccountSelected(Account origin) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setOriginAccountSelected');
+    try {
+      return super.setOriginAccountSelected(origin);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setCurrencySelected(String selected) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setCurrencySelected');
+    try {
+      return super.setCurrencySelected(selected);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setAmountSelected(double selected) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.setAmountSelected');
+    try {
+      return super.setAmountSelected(selected);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void addNewFakeTransaction(TransactionModel transaction) {
+    final _$actionInfo = _$GlobalStoreBaseActionController.startAction(
+        name: 'GlobalStoreBase.addNewFakeTransaction');
+    try {
+      return super.addNewFakeTransaction(transaction);
+    } finally {
+      _$GlobalStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   String toString() {
     return '''
 currentPosition: ${currentPosition},
 currentPlacemark: ${currentPlacemark},
 currentWeather: ${currentWeather},
 userAccounts: ${userAccounts},
-fakeTransactions: ${fakeTransactions}
+fakeTransactions: ${fakeTransactions},
+newTransaction: ${newTransaction},
+originAccountSelected: ${originAccountSelected},
+currencySelected: ${currencySelected},
+amountSelected: ${amountSelected}
     ''';
   }
 }

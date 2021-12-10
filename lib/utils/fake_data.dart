@@ -14,7 +14,7 @@ class FakeData {
         accountType: AccountType.Ahorro,
         id: 367890,
         balance: 28456.087,
-        currency: Currency.MXN,
+        currency: Currency.COP,
       ),
       Account(
         accountType: AccountType.Ahorro,

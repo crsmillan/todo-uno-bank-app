@@ -25,7 +25,7 @@ class AccountCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () => onCardTapped(context),
         child: Card(
-          color: Colors.teal,
+          // color: Colors.teal,
           elevation: 8.0,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),

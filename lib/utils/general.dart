@@ -17,6 +17,19 @@ class CurrencyFormater {
     }
   }
 
+  static Currency setCurrency(String currency) {
+    switch (currency) {
+      case 'USD':
+        return Currency.USD;
+
+      case 'COP':
+        return Currency.COP;
+
+      default:
+        return Currency.MXN;
+    }
+  }
+
   static String getCurrency(Currency currency) {
     switch (currency) {
       case Currency.USD:

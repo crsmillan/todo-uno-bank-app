@@ -1,5 +1,6 @@
 import 'package:bankapp/domain/models/account_model.dart';
 import 'package:bankapp/domain/models/transaction_model.dart';
+
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
@@ -71,6 +72,22 @@ abstract class GlobalStoreBase with Store {
     )
   ];
 
+
+
+  // TRANSACTION
+
+  @observable
+  Transaction? newTransaction ;
+
+  @observable
+  Account? originAccountSelected ;
+
+  @observable
+  String currencySelected = 'USD';
+
+  @observable
+  double amountSelected = 0.0;
+
   // ··················· ACTIONS ·······················
 
   @action
@@ -87,4 +104,16 @@ abstract class GlobalStoreBase with Store {
     userAccounts.clear();
     userAccounts = accounts;
   }
+
+  @action
+  void setOriginAccountSelected(Account origin )=> originAccountSelected = origin;
+
+  @action
+  void setCurrencySelected(String selected )=> currencySelected = selected;
+
+  @action
+  void setAmountSelected(double selected )=> amountSelected = selected;
+
+  @action
+  void addNewFakeTransaction(TransactionModel transaction) => fakeTransactions.add(transaction);
 }

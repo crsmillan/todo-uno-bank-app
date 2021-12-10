@@ -23,8 +23,7 @@ class TransactionList extends StatelessWidget {
           TransactionModel transaction = Store.global.fakeTransactions[index];
           String _type;
           Icon _icon;
-          String _currency =
-              CurrencyFormater.getCurrency(account.currency);
+          String _currency = CurrencyFormater.getCurrency(account.currency);
 
           switch (transaction.transactionType) {
             case TransanctionType.TRANSFER:
@@ -50,7 +49,9 @@ class TransactionList extends StatelessWidget {
             title: Text(_type),
             subtitle: Text(transaction.dateTime.toIso8601String()),
             trailing: Text('\$ ${transaction.amount} ' + _currency),
-            onTap: (){},
+            onTap: () {
+              
+            },
           );
         },
       ),

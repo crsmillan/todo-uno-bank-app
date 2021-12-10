@@ -41,6 +41,11 @@ dependencies:
   weather: ^2.0.1
   intl: ^0.17.0
   carousel_slider: ^4.0.0
+  qr_code_scanner: ^0.5.2
+  qr_flutter: ^4.0.0
+  share: ^2.0.4
+  path_provider: ^2.0.8
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:
