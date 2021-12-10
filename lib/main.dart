@@ -1,6 +1,7 @@
 import 'package:bankapp/components/account_carousel_slider.dart';
 import 'package:bankapp/components/app_bar.dart';
 import 'package:bankapp/components/fab_new_transaction.dart';
+import 'package:bankapp/components/fab_scanqr.dart';
 import 'package:bankapp/components/section.dart';
 import 'package:bankapp/components/weather.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,14 @@ class HomePage extends StatelessWidget {
           yield(context),
         ],
       ),
-      floatingActionButton: const FABNewTransaction(),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: const [
+          FABNewTransaction(),
+          Padding(padding: EdgeInsets.all(5.0)),
+          FABScannQR(),
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:bankapp/pages/new_transaction_page.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
@@ -38,17 +39,17 @@ class _ReadQrScreenState extends State<ReadQrScreen> {
       if (scanData.format == BarcodeFormat.qrcode && scanData.code.isNotEmpty) {
         final String _barcode = scanData.code;
 
-        const String keyword = 'kaspersky';
+        const String keyword = 'id';
         bool valid = _barcode.contains(keyword);
 
         if (valid) {
           controller.stopCamera();
-          // Navigator.of(context).pushReplacement(
-          //   MaterialPageRoute(
-          //     builder: (context) => TransactionScreen(barcode: _barcode),
-          //   ),
-          // );
-          log('dfghjkl');
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => const NewTransactionPage(),
+            ),
+          );
+          
         }
       }
     });
