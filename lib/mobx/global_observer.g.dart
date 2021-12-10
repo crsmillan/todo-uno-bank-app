@@ -69,6 +69,21 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
     });
   }
 
+  final _$fakeTransactionsAtom = Atom(name: 'GlobalStoreBase.fakeTransactions');
+
+  @override
+  List<TransactionModel> get fakeTransactions {
+    _$fakeTransactionsAtom.reportRead();
+    return super.fakeTransactions;
+  }
+
+  @override
+  set fakeTransactions(List<TransactionModel> value) {
+    _$fakeTransactionsAtom.reportWrite(value, super.fakeTransactions, () {
+      super.fakeTransactions = value;
+    });
+  }
+
   final _$GlobalStoreBaseActionController =
       ActionController(name: 'GlobalStoreBase');
 
@@ -122,7 +137,8 @@ mixin _$GlobalStore on GlobalStoreBase, Store {
 currentPosition: ${currentPosition},
 currentPlacemark: ${currentPlacemark},
 currentWeather: ${currentWeather},
-userAccounts: ${userAccounts}
+userAccounts: ${userAccounts},
+fakeTransactions: ${fakeTransactions}
     ''';
   }
 }

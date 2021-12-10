@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:bankapp/domain/models/account_model.dart';
+import 'package:bankapp/pages/account_details.dart';
 import 'package:bankapp/utils/general.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +7,15 @@ class AccountCard extends StatelessWidget {
   final Account account;
   const AccountCard({Key? key, required this.account}) : super(key: key);
 
+  void onCardTapped(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => AccountDetailsPage(
+          account: account,
+        ),
+      ),
+    );
+  }
 
   /// The size of that widget is resposability of who contains
   @override
@@ -15,9 +23,7 @@ class AccountCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(10.0),
       child: GestureDetector(
-        onTap: () {
-          log('Account ${account.id} Presset');
-        },
+        onTap: () => onCardTapped(context),
         child: Card(
           color: Colors.teal,
           elevation: 8.0,

@@ -25,6 +25,9 @@ class CurrencyFormater {
       case Currency.MXN:
         return 'MXN';
 
+      case Currency.COP:
+        return 'COP';
+
       default:
         return 'UNKNOWN';
     }

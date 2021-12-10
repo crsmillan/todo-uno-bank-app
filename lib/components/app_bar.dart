@@ -12,6 +12,12 @@ class AppBarComponet extends StatelessWidget with PreferredSizeWidget {
       backgroundColor: Colors.transparent,
       foregroundColor: Colors.purple,
       elevation: 0.0,
+      actions: <Widget>[
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.more_vert),
+        )
+      ],
     );
   }
 

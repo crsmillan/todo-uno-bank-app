@@ -7,7 +7,7 @@ enum AccountType {
   Ahorro
 }
 enum Currency {
-  USD, MXN
+  USD, MXN, COP
 }
 
 class Account {

@@ -1,4 +1,5 @@
 import 'package:bankapp/mobx/helper.dart';
+import 'package:bankapp/utils/fake_data.dart';
 import 'package:bankapp/utils/geolocalizator_api.dart';
 import 'package:bankapp/utils/weather_api.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class _WeatherComponentState extends State<WeatherComponent> {
   Future init() async {
     await Geolocalizator().getCityByPosition();
     await WeatherApi.getWeatherOfCurrentPosition();
+    FakeData().createFakeAccounts();
   }
 
   Observer displayWheaterIcon() {
